@@ -15,6 +15,8 @@ Route::get('/','UIViewController@ShowHomepage');
 
 Route::get('/member','UIViewController@ShowMember');
 
+Route::get('/wallet/{user_id}','UIViewController@ShowWallet');
+
 // Member Function
 Route::post('/register-process','UserController@RegisterProcess');
 Route::post('/login-process','UserController@LoginProcess');

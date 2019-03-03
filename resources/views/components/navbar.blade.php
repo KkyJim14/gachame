@@ -21,6 +21,7 @@
               <img id="navbar__profile__img" src="/assets/img/profile/{{session('user_img')}}" alt="user_img"> {{session('user_fname')}} {{session('user_lname')}}
             </a>
             <div class="dropdown-menu" aria-labelledby="ลงชื่อออก">
+              <a class="dropdown-item" href="/wallet/{{session('user_id')}}">กระเป๋าตังค์</a>
               <a class="dropdown-item" href="/logout-process">ลงชื่อออก</a>
             </div>
           </li>

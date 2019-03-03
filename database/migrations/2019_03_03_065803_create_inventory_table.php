@@ -14,7 +14,7 @@ class CreateInventoryTable extends Migration
     public function up()
     {
         Schema::create('inventory', function (Blueprint $table) {
-            $table->bigIncrements('inventory_id');
+            $table->uuid('inventory_id')->primary();
             $table->integer('user_id');
             $table->integer('product_id');
             $table->boolean('inventroy_transfer');

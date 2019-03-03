@@ -14,7 +14,7 @@ class CreateGachaponTable extends Migration
     public function up()
     {
         Schema::create('gachapon', function (Blueprint $table) {
-            $table->bigIncrements('gachapon_id');
+            $table->uuid('gachapon_id')->primary();
             $table->string('gachapon_name');
             $table->integer('gachapon_price');
             $table->string('gachapon_img');

@@ -33,6 +33,7 @@ class UserController extends Controller
 
       session([
                 'user_log' => '1',
+                'user_id' => $user->user_id,
                 'user_fname' => $user->user_fname,
                 'user_lname' => $user->user_lname,
                 'user_email' => $user->user_email,
@@ -55,6 +56,7 @@ class UserController extends Controller
 
           session([
                     'user_log' => '1',
+                    'user_id' => $user->user_id,
                     'user_fname' => $user->user_fname,
                     'user_lname' => $user->user_lname,
                     'user_email' => $user->user_email,

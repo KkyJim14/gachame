@@ -14,7 +14,7 @@ class CreateRoleTable extends Migration
     public function up()
     {
         Schema::create('role', function (Blueprint $table) {
-            $table->bigIncrements('role_id');
+            $table->uuid('role_id')->primary();
             $table->integer('gachapon_id');
             $table->integer('product_id');
             $table->integer('role_qty');

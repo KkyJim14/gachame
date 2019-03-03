@@ -20,4 +20,19 @@ class UIViewController extends Controller
         return view('pages.user.member');
       }
     }
+
+    public function ShowWallet($user_id)  {
+
+      if (session('user_id') == $user_id) {
+        return view('pages.user.wallet');
+      }
+
+      else {
+        abort(404);
+      }
+
+    }
+
+
+
 }
