@@ -9,8 +9,15 @@ use App\User;
 class AdminTransferController extends Controller
 {
     public function AdminShowTransfer() {
-      $transfer = Transfer::all();
+      $transfer = Transfer::where('transfer_slip','=',null)->where('transfer_approve','0')->orderBy('created_at','asc')->get();
       return view('admin.pages.transfer.transfer',[
+                                                    'transfer' => $transfer,
+                                                  ]);
+    }
+
+    public function AdminShowTransferAll()  {
+      $transfer = Transfer::all();
+      return view('admin.pages.transfer.transfer-all',[
                                                     'transfer' => $transfer,
                                                   ]);
     }

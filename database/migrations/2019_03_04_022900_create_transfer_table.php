@@ -17,6 +17,7 @@ class CreateTransferTable extends Migration
             $table->uuid('transfer_id')->primary();
             $table->uuid('user_id');
             $table->integer('transfer_amount');
+            $table->string('transfer_slip')->nullable();
             $table->integer('transfer_approve');
             $table->timestamps();
         });

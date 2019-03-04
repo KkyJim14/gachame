@@ -24,4 +24,22 @@ class TransferController extends Controller
                                                     'transfer' => $transfer,
                                                    ]);
     }
+
+    public function TransferSlipProcess(Request $request) {
+
+      if ($request->hasFile('transfer_slip')) {
+        $image = $request->file('transfer_slip');
+        $name = uniqid().'.'.$image->getClientOriginalExtension();
+        $destinationPath = public_path('/assets/img/slip');
+        $image->move($destinationPath, $name);
+
+        $transfer = Transfer::find($request->transfer_id);
+        $transfer->transfer_slip = $name;
+        $transfer->save();
+
+        }
+
+        return redirect()->back();
+
+     }
 }

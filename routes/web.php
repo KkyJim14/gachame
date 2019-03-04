@@ -46,8 +46,13 @@ Route::post('/transfer','TransferController@TransferProcess');
 
 Route::get('/transfer-report/{user_id}','TransferController@ShowTransferReport');
 
+Route::post('/transfer-slip-process','TransferController@TransferSlipProcess');
+
+
 //Admin Transfer Function
 
 Route::get('/admin/transfer','AdminTransferController@AdminShowTransfer')->name('transfer');
+
+Route::get('/admin/transfer-all','AdminTransferController@AdminShowTransferAll');
 
 Route::post('/admin/transfer/{id}/edit','AdminTransferController@AdminApproveTransfer');

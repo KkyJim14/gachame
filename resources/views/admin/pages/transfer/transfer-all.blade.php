@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-<h3>สลิปรอตรวจสอบ</h3>
+<h3>การโอนเงินทั้งหมด</h3>
 <hr>
 <table class="table table-striped text-center">
   <thead>
@@ -22,6 +22,15 @@
       <th scope="row">{{$loop->iteration}}</th>
       <td>{{$all_transfer->user->user_fname}} {{$all_transfer->user->user_lname}}</td>
       <td>{{$all_transfer->transfer_amount}}</td>
+      @if($all_transfer->transfer_approve == 2)
+      <td>
+        <button class="btn btn-success form-control disabled" type="button" name="button">การโอนเงินถูกอนุมัติ</button>
+      </td>
+      @elseif($all_transfer->transfer_approve == 1)
+      <td>
+        <button class="btn btn-danger form-control disabled" type="button" name="button">การโอนเงินถูกปฎิเสธ</button>
+      </td>
+      @else
       <td>
         <form action="/admin/transfer/{{$all_transfer->transfer_id}}/edit" method="post">
           <input type="hidden" name="transfer_approve" value="2">
@@ -36,6 +45,7 @@
           <button class="btn btn-danger form-control">ปฎิเสธ</button>
         </form>
       </td>
+      @endif
     </tr>
     @endforeach
   </tbody>

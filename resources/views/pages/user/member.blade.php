@@ -71,7 +71,7 @@
         </div>
         <div class="form-group">
           <label for="register_tel">เบอร์โทร</label>
-          <input id="register_tel" class="form-control" type="text" name="register_tel" value="" placeholder="กรุณาใส่เบอร์โทร">
+          <input id="register_tel" class="form-control" type="number" name="register_tel" value="" placeholder="กรุณาใส่เบอร์โทร">
         </div>
         <div class="form-group">
           <label for="register_gender_male">ชาย</label>

@@ -40,7 +40,7 @@ class UserController extends Controller
                 'user_lname' => $user->user_lname,
                 'user_email' => $user->user_email,
                 'user_img' => $user->user_img,
-                'user_money' => $uesr->user_money,
+                'user_money' => $user->user_money,
                 'user_token' => $user->user_token,
               ]);
 
