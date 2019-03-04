@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateInventoryTable extends Migration
+class CreateMoneyTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateInventoryTable extends Migration
      */
     public function up()
     {
-        Schema::create('inventory', function (Blueprint $table) {
-            $table->uuid('inventory_id')->primary();
-            $table->uuid('user_id');
-            $table->uuid('product_id');
-            $table->boolean('inventroy_transfer');
+        Schema::create('money', function (Blueprint $table) {
+            $table->uuid('money_id')->primary();
+            $table->string('money_name');
+            $table->integer('money_pay');
+            $table->integer('money_get');
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ class CreateInventoryTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('inventory');
+        Schema::dropIfExists('money');
     }
 }

@@ -3,7 +3,6 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-
 use App\Traits\Uuids;
 
 class User extends Model
@@ -18,5 +17,5 @@ class User extends Model
     public $incrementing = false;
 
     protected $table = 'user';
-    
+
 }

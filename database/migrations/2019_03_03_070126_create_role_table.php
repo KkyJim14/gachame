@@ -15,8 +15,8 @@ class CreateRoleTable extends Migration
     {
         Schema::create('role', function (Blueprint $table) {
             $table->uuid('role_id')->primary();
-            $table->integer('gachapon_id');
-            $table->integer('product_id');
+            $table->uuid('gachapon_id');
+            $table->uuid('product_id');
             $table->integer('role_qty');
             $table->timestamps();
         });

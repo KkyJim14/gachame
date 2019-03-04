@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Money;
 
 class UIViewController extends Controller
 {
@@ -24,7 +25,10 @@ class UIViewController extends Controller
     public function ShowWallet($user_id)  {
 
       if (session('user_id') == $user_id) {
-        return view('pages.user.wallet');
+        $money = Money::all();
+        return view('pages.user.wallet',[
+                                          'money' => $money,
+                                        ]);
       }
 
       else {

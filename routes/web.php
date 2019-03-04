@@ -21,3 +21,25 @@ Route::get('/wallet/{user_id}','UIViewController@ShowWallet');
 Route::post('/register-process','UserController@RegisterProcess');
 Route::post('/login-process','UserController@LoginProcess');
 Route::get('/logout-process','UserController@LogoutProcess');
+
+
+Route::get('/admin/dashboard','AdminUIViewController@ShowAdminDashboard');
+
+// Admin Money Function
+
+Route::get('/admin/money','AdminMoneyController@index')->name('money');
+
+Route::get('/admin/money/create','AdminMoneyController@create');
+
+Route::post('/admin/money','AdminMoneyController@store');
+
+Route::get('/admin/money/{id}/edit','AdminMoneyController@edit');
+
+Route::post('/admin/money/{id}/edit','AdminMoneyController@update');
+
+Route::post('/admin/money/{id}','AdminMoneyController@Destroy');
+
+
+// Transfer Function
+
+Route::post('/transfer','TransferController@store');
