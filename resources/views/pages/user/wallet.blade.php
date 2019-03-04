@@ -8,7 +8,7 @@
 <div class="container mt-5">
   <div class="row">
     <div class="col-md-6" style="border-right:1px solid black;">
-      <h3>กระเป๋าตังค์ของฉัน <span style="float:right;"><i class="fas fa-money-bill-alt"></i> 503</span> </h3>
+      <h3>กระเป๋าตังค์ของฉัน <span style="float:right;"><i class="fas fa-money-bill-alt"></i> {{$user->user_money}}</span> </h3>
       <hr>
       <h5>เติมเงิน</h5>
       <table class="table text-center">
@@ -66,7 +66,7 @@
       <a class="btn btn-primary form-control mt-2" href="#">ชำระผ่านบัตรเครดิต</a>
     </div>
     <div class="col-md-6">
-      <h3>Token ของฉัน <span style="float:right;"><i class="fas fa-coins"></i> 503</span> </h3>
+      <h3>Token ของฉัน <span style="float:right;"><i class="fas fa-coins"></i> {{$user->user_token}}</span> </h3>
       <hr>
       <h5>แลก Token</h5>
       <table class="table text-center">

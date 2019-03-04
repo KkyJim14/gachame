@@ -23,6 +23,8 @@ class CreateUserTable extends Migration
             $table->integer('user_gender');
             $table->integer('user_tel');
             $table->string('user_img');
+            $table->integer('user_money');
+            $table->integer('user_token');
             $table->timestamps();
         });
     }

@@ -29,6 +29,8 @@ class UserController extends Controller
       $user->user_gender = $request->register_gender;
       $user->user_tel = $request->register_tel;
       $user->user_img = 'profile.png';
+      $user->user_money = 0;
+      $user->user_token = 0;
       $user->save();
 
       session([
@@ -38,6 +40,8 @@ class UserController extends Controller
                 'user_lname' => $user->user_lname,
                 'user_email' => $user->user_email,
                 'user_img' => $user->user_img,
+                'user_money' => $uesr->user_money,
+                'user_token' => $user->user_token,
               ]);
 
       return redirect()->back();
@@ -61,6 +65,8 @@ class UserController extends Controller
                     'user_lname' => $user->user_lname,
                     'user_email' => $user->user_email,
                     'user_img' => $user->user_img,
+                    'user_money' => $user->user_money,
+                    'user_token' => $user->user_token,
                   ]);
 
           return redirect()->back();

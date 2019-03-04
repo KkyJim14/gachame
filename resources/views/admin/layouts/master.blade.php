@@ -86,6 +86,7 @@
                     <li><a href="/admin/token"><i class="fas fa-coins"></i>  เติม Token</a></li>
                     <!-- <li><a href="/admin/admin-city"><i class="fas fa-city"></i>  เมือง</a></li> -->
                  </ul>
+                 <li><a href="/admin/transfer"><i class="fas fa-exchange-alt"></i> การโอนเงิน</a> </li>
            </ul>
            <!-- /.sidebar-menu -->
         </section>

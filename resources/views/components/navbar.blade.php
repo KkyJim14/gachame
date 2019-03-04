@@ -20,7 +20,8 @@
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <img id="navbar__profile__img" src="/assets/img/profile/{{session('user_img')}}" alt="user_img"> {{session('user_fname')}} {{session('user_lname')}}
             </a>
-            <div class="dropdown-menu" aria-labelledby="ลงชื่อออก">
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="/transfer-report/{{session('user_id')}}">แจ้งโอนเงิน</a>
               <a class="dropdown-item" href="/wallet/{{session('user_id')}}">กระเป๋าตังค์</a>
               <a class="dropdown-item" href="/logout-process">ลงชื่อออก</a>
             </div>

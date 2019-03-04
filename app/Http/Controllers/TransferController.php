@@ -4,87 +4,24 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Transfer;
+use App\User;
 
 class TransferController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
+    public function TransferProcess(Request $request) {
+      $transfer = new Transfer;
+      $transfer->user_id = session('user_id');
+      $transfer->transfer_amount = $request->transfer_amount;
+      $transfer->transfer_approve = 0;
+      $transfer->save();
+
+      return redirect('/');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        $transfer = new Transfer;
-        $transfer->user_id = session('user_id');
-        $transfer->transfer_amount = $request->transfer_amount;
-        $transfer->save();
-
-        return redirect('/');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+    public function ShowTransferReport($user_id)  {
+      $transfer = Transfer::all();
+      return view('pages.transfer.transfer-report',[
+                                                    'transfer' => $transfer,
+                                                   ]);
     }
 }

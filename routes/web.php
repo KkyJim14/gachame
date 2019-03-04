@@ -42,4 +42,12 @@ Route::post('/admin/money/{id}','AdminMoneyController@Destroy');
 
 // Transfer Function
 
-Route::post('/transfer','TransferController@store');
+Route::post('/transfer','TransferController@TransferProcess');
+
+Route::get('/transfer-report/{user_id}','TransferController@ShowTransferReport');
+
+//Admin Transfer Function
+
+Route::get('/admin/transfer','AdminTransferController@AdminShowTransfer')->name('transfer');
+
+Route::post('/admin/transfer/{id}/edit','AdminTransferController@AdminApproveTransfer');
