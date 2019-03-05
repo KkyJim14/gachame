@@ -66,10 +66,11 @@
         @csrf
         <button class="btn btn-success form-control mt-2" type="submit" name="button">โอนเงิน</button>
       </form>
-      <form class="checkout-form mt-2" name="checkoutForm" method="POST" action="/checkout">
+      <form class="checkout-form mt-2" name="checkoutForm" method="POST" action="/omise-pay">
+        @csrf
         <script type="text/javascript" src="https://cdn.omise.co/omise.js"
                 data-key="pkey_test_5cxodoewdmtrmj4j1g4"
-                data-amount="{{}}"
+                data-amount="500"
                 data-frame-label="www.gachame.com"
                 data-submit-label="ยืนยันการชำระเงิน"
                 data-button-label="เติมผ่านบัตรเครดิต">
@@ -78,22 +79,35 @@
     </div>
     <div class="col-md-6">
       <h3>Token ของฉัน <span style="float:right;"><i class="fas fa-coins"></i> {{$user->user_token}}</span> </h3>
+      @if(session('transfer_fail'))
+        <div class="alert alert-danger">
+          <span>{{session('transfer_fail')}}</span>
+        </div>
+      @endif
       <hr>
       <h5>แลก Token</h5>
       <table class="table text-center">
         <thead>
           <tr>
-            <th scope="col">Token ที่ได้</th>
             <th scope="col">เงินที่ใช้แลก</th>
+            <th scope="col">Token ที่ได้</th>
             <th scope="col">แลก</th>
           </tr>
         </thead>
         <tbody>
+          @foreach($token as $all_token)
           <tr>
-            <td>50</td>
-            <td>500</td>
-            <td><a class="btn btn-primary form-control" href="#">แลก</a></td>
+            <td>{{$all_token->token_pay}}</td>
+            <td>{{$all_token->token_get}}</td>
+            <td>
+              <form action="/token-transfer" method="post">
+                <input type="hidden" name="token_transfer" value="{{$all_token->token_id}}">
+                @csrf
+                <button class="btn btn-primary form-control" type="submit" name="button">แลก</button>
+              </form>
+            </td>
           </tr>
+          @endforeach
         </tbody>
       </table>
       <h5>ระบุจำนวน (1 Token = 10 บาท)</h5>

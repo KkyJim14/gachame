@@ -40,6 +40,20 @@ Route::post('/admin/money/{id}/edit','AdminMoneyController@update');
 Route::post('/admin/money/{id}','AdminMoneyController@Destroy');
 
 
+// Admin Token Function
+
+Route::get('/admin/token','AdminTokenController@ShowAdminToken')->name('token');
+
+Route::get('/admin/token/create','AdminTokenController@ShowAdminCreateToken');
+
+Route::post('/admin/token','AdminTokenController@AdminCreateTokenProcess');
+
+Route::get('/admin/token/{id}/edit','AdminTokenController@ShowAdminEditToken');
+
+Route::post('/admin/token/{id}/edit','AdminTokenController@AdminEditTokenProcess');
+
+Route::post('/admin/token/{id}','AdminTokenController@AdminDeleteTokenProcess');
+
 // Transfer Function
 
 Route::post('/transfer','TransferController@TransferProcess');
@@ -61,3 +75,7 @@ Route::post('/admin/transfer/{id}/edit','AdminTransferController@AdminApproveTra
 // Omise Payment
 
 Route::post('/omise-pay','OmiseController@OmisePay');
+
+// Token Transfer
+
+Route::post('/token-transfer','TokenTransferController@TokenTransferProcess');
