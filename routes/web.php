@@ -79,3 +79,5 @@ Route::post('/omise-pay','OmiseController@OmisePay');
 // Token Transfer
 
 Route::post('/token-transfer','TokenTransferController@TokenTransferProcess');
+
+Route::post('/token-transfer-manual','TokenTransferController@TokenTransferManualProcess');

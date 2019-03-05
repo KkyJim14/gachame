@@ -22,4 +22,18 @@ class TokenTransferController extends Controller
         return redirect()->back();
       }
     }
+
+    public function TokenTransferManualProcess(Request $request)  {
+      $user = User::find(session('user_id'));
+      if ($user->user_money < $request->token_transfer) {
+        return redirect()->back()->with('transfer_fail','จำนวนเงินคุณไม่พอ');
+      }
+      else {
+        $user->user_money = $user->user_money-$request->token_transfer;
+        $user->user_token = $user->user_token+$request->token_transfer;
+        $user->save();
+
+        return redirect()->back();
+      }
+    }
 }

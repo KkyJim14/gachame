@@ -110,9 +110,12 @@
           @endforeach
         </tbody>
       </table>
-      <h5>ระบุจำนวน (1 Token = 10 บาท)</h5>
-      <input class="form-control" type="number" name="manual_pay" value="" placeholder="กรุณาระบุจำนวนเงินที่ต้องการแลก">
-      <a class="btn btn-primary form-control mt-2" href="#">ยืนยันการแลก Token</a>
+      <h5>ระบุจำนวน (1 Token = 1 บาท)</h5>
+      <form  action="/token-transfer-manual" method="post">
+        <input class="form-control" type="number" name="token_transfer" value="" placeholder="กรุณาระบุจำนวนเงินที่ต้องการแลก">
+        @csrf
+        <button class="btn btn-primary form-control mt-2" type="submit" name="button">แลก Token</button>
+      </form>
     </div>
   </div>
 </div>
