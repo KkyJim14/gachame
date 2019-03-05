@@ -56,3 +56,8 @@ Route::get('/admin/transfer','AdminTransferController@AdminShowTransfer')->name(
 Route::get('/admin/transfer-all','AdminTransferController@AdminShowTransferAll');
 
 Route::post('/admin/transfer/{id}/edit','AdminTransferController@AdminApproveTransfer');
+
+
+// Omise Payment
+
+Route::post('/omise-pay','OmiseController@OmisePay');

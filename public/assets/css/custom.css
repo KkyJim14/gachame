@@ -6,3 +6,12 @@ body {
   width:30px;
   height:30px;
 }
+
+.checkout-form button {
+  width:100%;
+  background-color:#007bff;
+  border:none;
+  color:white;
+  padding:8px;
+  border-radius: 5px;
+}

@@ -61,9 +61,20 @@
         </tbody>
       </table>
       <h5>ระบุจำนวน</h5>
-      <input class="form-control" type="number" name="manual_pay" value="" placeholder="กรุณาระบุจำนวนเงินที่ต้องการเติม">
-      <a class="btn btn-success form-control mt-2" href="#">โอนเงิน</a>
-      <a class="btn btn-primary form-control mt-2" href="#">ชำระผ่านบัตรเครดิต</a>
+      <form action="/transfer" method="post">
+        <input class="form-control" type="number" name="transfer_amount" value="" placeholder="กรุณาระบุจำนวนเงินที่ต้องการเติม">
+        @csrf
+        <button class="btn btn-success form-control mt-2" type="submit" name="button">โอนเงิน</button>
+      </form>
+      <form class="checkout-form mt-2" name="checkoutForm" method="POST" action="/checkout">
+        <script type="text/javascript" src="https://cdn.omise.co/omise.js"
+                data-key="pkey_test_5cxodoewdmtrmj4j1g4"
+                data-amount="{{}}"
+                data-frame-label="www.gachame.com"
+                data-submit-label="ยืนยันการชำระเงิน"
+                data-button-label="เติมผ่านบัตรเครดิต">
+        </script>
+      </form>
     </div>
     <div class="col-md-6">
       <h3>Token ของฉัน <span style="float:right;"><i class="fas fa-coins"></i> {{$user->user_token}}</span> </h3>
