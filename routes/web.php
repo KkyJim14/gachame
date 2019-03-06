@@ -95,3 +95,12 @@ Route::get('/admin/product/{id}/edit','AdminProductController@ShowAdminEditProdu
 Route::post('/admin/product/{id}/edit','AdminProductController@AdminEditProductProcess');
 
 Route::post('/admin/product/{id}','AdminProductController@AdminDeleteProductProcess');
+
+
+// Admin Gachapon Function
+
+Route::get('/admin/gachapon','AdminGachaponController@ShowAdminGachapon')->name('gachapon');
+
+Route::get('/admin/gachapon/create','AdminGachaponController@ShowAdminCreateGachapon');
+
+Route::post('/admin/gachapon','AdminGachaponController@AdminCreateGachaponProcess');

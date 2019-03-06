@@ -23,7 +23,7 @@ class AdminProductController extends Controller
       $validatedData = $request->validate([
           'product_name' => 'required',
           'product_price' => 'required',
-          'product_img' => 'required',
+          'product_img' => 'required|image|max:2048',
       ]);
 
 
@@ -58,6 +58,7 @@ class AdminProductController extends Controller
       $validatedData = $request->validate([
           'product_name' => 'required',
           'product_price' => 'required',
+          'product_img' => 'image|max:2048',
       ]);
 
       $product = Product::find($id);

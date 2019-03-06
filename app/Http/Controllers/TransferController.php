@@ -27,6 +27,10 @@ class TransferController extends Controller
 
     public function TransferSlipProcess(Request $request) {
 
+      $validatedData = $request->validate([
+          'transfer_slip' => 'required|image|max:2048',
+      ]);
+
       if ($request->hasFile('transfer_slip')) {
         $image = $request->file('transfer_slip');
         $name = uniqid().'.'.$image->getClientOriginalExtension();
