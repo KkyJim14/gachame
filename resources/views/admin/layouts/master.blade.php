@@ -87,6 +87,7 @@
                  </ul>
                  <li><a href="/admin/transfer"><i class="fas fa-exchange-alt"></i> สลิปรอตรวจสอบ</a> </li>
                  <li><a href="/admin/transfer-all"><i class="fas fa-clipboard-check"></i> การโอนเงินทั้งหมด</a> </li>
+                 <li><a href="/admin/product"><i class="fas fa-box-open"></i> สินค้า</a> </li>
            </ul>
            <!-- /.sidebar-menu -->
         </section>

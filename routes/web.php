@@ -81,3 +81,17 @@ Route::post('/omise-pay','OmiseController@OmisePay');
 Route::post('/token-transfer','TokenTransferController@TokenTransferProcess');
 
 Route::post('/token-transfer-manual','TokenTransferController@TokenTransferManualProcess');
+
+// Admin Product Function
+
+Route::get('/admin/product','AdminProductController@ShowAdminProduct')->name('product');
+
+Route::get('/admin/product/create','AdminProductController@ShowAdminCreateProduct');
+
+Route::post('/admin/product','AdminProductController@AdminCreateProductProcess');
+
+Route::get('/admin/product/{id}/edit','AdminProductController@ShowAdminEditProduct');
+
+Route::post('/admin/product/{id}/edit','AdminProductController@AdminEditProductProcess');
+
+Route::post('/admin/product/{id}','AdminProductController@AdminDeleteProductProcess');

@@ -19,6 +19,13 @@ class AdminTokenController extends Controller
     }
 
     public function AdminCreateTokenProcess(Request $request) {
+
+      $validatedData = $request->validate([
+          'token_name' => 'required',
+          'token_pay' => 'required',
+          'token_get' => 'required',
+      ]);
+
       $token = new Token;
       $token->token_name = $request->token_name;
       $token->token_pay = $request->token_pay;
@@ -37,6 +44,13 @@ class AdminTokenController extends Controller
     }
 
     public function AdminEditTokenProcess(Request $request,$id) {
+
+      $validatedData = $request->validate([
+          'token_name' => 'required',
+          'token_pay' => 'required',
+          'token_get' => 'required',
+      ]);
+
       $token = Token::find($id);
       $token->token_name = $request->token_name;
       $token->token_pay = $request->token_pay;
