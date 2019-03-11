@@ -9,7 +9,7 @@ use App\User;
 class AdminTransferController extends Controller
 {
     public function AdminShowTransfer() {
-      $transfer = Transfer::where('transfer_slip','=',null)->where('transfer_approve','0')->orderBy('created_at','asc')->get();
+      $transfer = Transfer::where('transfer_slip','!=',null)->where('transfer_approve','0')->orderBy('created_at','asc')->get();
       return view('admin.pages.transfer.transfer',[
                                                     'transfer' => $transfer,
                                                   ]);
@@ -28,9 +28,13 @@ class AdminTransferController extends Controller
       $transfer->transfer_approve = $request->transfer_approve;
       $transfer->save();
 
-      $user = User::find($request->user_id);
-      $user->user_money = $user->user_money+$transfer->transfer_amount;
-      $user->save();
+      if ($request->transfer_approve == 2) {
+        $user = User::find($request->user_id);
+        $user->user_money = $user->user_money+$transfer->transfer_amount;
+        $user->save();
+
+        $request->session()->put('user_money', $user->user_money);
+      }
 
       return redirect()->route('transfer');
     }

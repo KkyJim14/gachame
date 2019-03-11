@@ -18,6 +18,7 @@ class CreateRoleTable extends Migration
             $table->uuid('gachapon_id');
             $table->uuid('product_id');
             $table->integer('role_qty');
+            $table->boolean('role_rare');
             $table->timestamps();
         });
     }

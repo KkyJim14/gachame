@@ -20,6 +20,7 @@ class OmiseController extends Controller
       ));
 
       if ($charge['status'] == 'successful') {
+        $request->session()->put('user_money', 500);
         return redirect()->bacK();
       }
     }

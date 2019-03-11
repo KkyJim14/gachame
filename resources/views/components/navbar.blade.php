@@ -8,17 +8,25 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
+          <a class="nav-link" href="#">เกี่ยวกับเรา</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+          <a class="nav-link" href="#">อัลกอริทึ่มการสุ่ม</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">ติดต่อเรา</a>
         </li>
       </ul>
       @if(session('user_log'))
       <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a href="/wallet/{{session('user_id')}}" class="nav-link">
+              <i class="fas fa-money-bill-alt"></i> <span>{{session('user_money')}}</span> | <i class="fas fa-coins"></i> <span>{{session('user_token')}}</span>
+            </a>
+          </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <img id="navbar__profile__img" src="/assets/img/profile/{{session('user_img')}}" alt="user_img"> {{session('user_fname')}} {{session('user_lname')}}
+              <i class="fas fa-user"></i> {{session('user_fname')}} {{session('user_lname')}}
             </a>
             <div class="dropdown-menu">
               <a class="dropdown-item" href="/transfer-report/{{session('user_id')}}">แจ้งโอนเงิน</a>

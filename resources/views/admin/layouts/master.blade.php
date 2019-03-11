@@ -17,7 +17,7 @@
      <!-- Main Header -->
      <header class="main-header">
         <!-- Logo -->
-        <a href="/admin" class="logo">
+        <a href="/admin/dashboard" class="logo">
            <!-- mini logo for sidebar mini 50x50 pixels -->
            <span class="logo-mini"><b>G</b>CH</span>
            <!-- logo for regular state and mobile devices -->

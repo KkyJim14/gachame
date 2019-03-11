@@ -15,6 +15,7 @@
       <th scope="col">ชื่อตู้</th>
       <th scope="col">ชื่อสินค้า</th>
       <th scope="col">จำนวน</th>
+      <th scopr="col">แรร์</th>
       <th scope="col">แก้ไข</th>
       <th scope="col">ลบ</th>
     </tr>
@@ -26,6 +27,15 @@
       <td>{{$all_role->gachapon->gachapon_name}}</td>
       <td>{{$all_role->product->product_name}}</td>
       <td>{{$all_role->role_qty}}</td>
+      @if($all_role->role_rare == true)
+      <td>
+        <i class="fas fa-check-circle"></i>
+      </td>
+      @else
+      <td>
+        <i class="fas fa-times-circle"></i>
+      </td>
+      @endif
       <td><a class="btn btn-warning form-control" href="/admin/product-in-gachapon/{{$all_role->role_id}}/edit">แก้ไข</a> </td>
       <td>
         <form action="/admin/product-in-gachapon/{{$all_role->role_id}}" method="post">

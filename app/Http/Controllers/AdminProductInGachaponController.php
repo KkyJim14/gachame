@@ -37,6 +37,12 @@ class AdminProductInGachaponController extends Controller
       $role->gachapon_id = $request->gachapon_id;
       $role->product_id = $request->product_id;
       $role->role_qty = $request->role_qty;
+      if ($request->role_rare == 1) {
+        $role->role_rare = true;
+      }
+      else {
+        $role->role_rare = false;
+      }
       $role->save();
 
       return redirect()->route('product-in-gachapon');
@@ -65,6 +71,12 @@ class AdminProductInGachaponController extends Controller
       $role->gachapon_id = $request->gachapon_id;
       $role->product_id = $request->product_id;
       $role->role_qty = $request->role_qty;
+      if ($request->role_rare == 1) {
+        $role->role_rare = true;
+      }
+      else {
+        $role->role_rare = false;
+      }
       $role->save();
 
       return redirect()->route('product-in-gachapon');

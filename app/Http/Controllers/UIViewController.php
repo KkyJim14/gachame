@@ -6,11 +6,15 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Money;
 use App\Token;
+use App\Gachapon;
 
 class UIViewController extends Controller
 {
     public function ShowHomePage()  {
-      return view('index');
+      $gachapon = Gachapon::all();
+      return view('index',[
+                            'gachapon' => $gachapon,
+                          ]);
     }
 
     public function ShowMember()  {

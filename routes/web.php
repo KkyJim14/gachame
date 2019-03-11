@@ -17,6 +17,11 @@ Route::get('/member','UIViewController@ShowMember');
 
 Route::get('/wallet/{user_id}','UIViewController@ShowWallet');
 
+// Gachapon Function
+Route::get('/gachapon/{id}','GachaponController@ShowGachapon');
+
+Route::post('/gachapon/{id}/random','GachaponController@GachaponRandom');
+
 // Member Function
 Route::post('/register-process','UserController@RegisterProcess');
 Route::post('/login-process','UserController@LoginProcess');
@@ -58,7 +63,7 @@ Route::post('/admin/token/{id}','AdminTokenController@AdminDeleteTokenProcess');
 
 Route::post('/transfer','TransferController@TransferProcess');
 
-Route::get('/transfer-report/{user_id}','TransferController@ShowTransferReport');
+Route::get('/transfer-report/{user_id}','TransferController@ShowTransferReport')->name('transfer-report');
 
 Route::post('/transfer-slip-process','TransferController@TransferSlipProcess');
 

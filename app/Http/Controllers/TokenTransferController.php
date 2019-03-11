@@ -19,6 +19,8 @@ class TokenTransferController extends Controller
         $user->user_token = $user->user_token+$token->token_get;
         $user->save();
 
+        $request->session()->put('user_token', $user->user_token);
+
         return redirect()->back();
       }
     }
@@ -32,6 +34,8 @@ class TokenTransferController extends Controller
         $user->user_money = $user->user_money-$request->token_transfer;
         $user->user_token = $user->user_token+$request->token_transfer;
         $user->save();
+
+        $request->session()->put('user_token', $user->user_token);
 
         return redirect()->back();
       }
