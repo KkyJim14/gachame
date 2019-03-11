@@ -28,7 +28,7 @@
       <td>{{$all_gachapon->gachapon_price}}</td>
       <td><a class="btn btn-warning form-control" href="/admin/gachapon/{{$all_gachapon->gachapon_id}}/edit">แก้ไข</a> </td>
       <td>
-        <form action="/admin/token/{{$all_gachapon->gachapon_id}}" method="post">
+        <form action="/admin/gachapon/{{$all_gachapon->gachapon_id}}" method="post">
           @csrf
           <button class="btn btn-danger form-control" type="submit" name="button">ลบ</button>
         </form>

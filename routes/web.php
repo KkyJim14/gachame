@@ -104,3 +104,23 @@ Route::get('/admin/gachapon','AdminGachaponController@ShowAdminGachapon')->name(
 Route::get('/admin/gachapon/create','AdminGachaponController@ShowAdminCreateGachapon');
 
 Route::post('/admin/gachapon','AdminGachaponController@AdminCreateGachaponProcess');
+
+Route::get('/admin/gachapon/{id}/edit','AdminGachaponController@ShowAdminEditGachapon');
+
+Route::post('/admin/gachapon/{id}/edit','AdminGachaponController@AdminEditGachaponProcess');
+
+Route::post('/admin/gachapon/{id}','AdminGachaponController@AdminDeleteGachaponProcess');
+
+// Admin ProductInGachapon Function
+
+Route::get('/admin/product-in-gachapon','AdminProductInGachaponController@ShowAdminProductInGachapon')->name('product-in-gachapon');
+
+Route::get('/admin/product-in-gachapon/create','AdminProductInGachaponController@ShowAdminCreateProductInGachapon');
+
+Route::post('/admin/product-in-gachapon','AdminProductInGachaponController@AdminCreateProductInGachaponProcess');
+
+Route::get('/admin/product-in-gachapon/{id}/edit','AdminProductInGachaponController@ShowAdminEditProductInGachapon');
+
+Route::post('/admin/product-in-gachapon/{id}/edit','AdminProductInGachaponController@AdminEditProductInGachaponProcess');
+
+Route::post('/admin/product-in-gachapon/{id}','AdminProductInGachaponController@AdminDeleteProductInGachaponProcess');

@@ -45,4 +45,45 @@ class AdminGachaponController extends Controller
         return redirect()->route('gachapon');
 
     }
+
+    public function ShowAdminEditGachapon($id) {
+      $gachapon = Gachapon::find($id);
+      return view('admin.pages.gachapon.edit-gachapon',[
+                                                        'gachapon' => $gachapon,
+                                                       ]);
+    }
+
+    public function AdminEditGachaponProcess(Request $request,$id) {
+
+      $validatedData = $request->validate([
+          'gachapon_name' => 'required',
+          'gachapon_price' => 'required',
+          'gachapon_img' => 'image|max:2048',
+      ]);
+
+      $gachapon = Gachapon::find($id);
+      $gachapon->gachapon_name = $request->gachapon_name;
+      $gachapon->gachapon_price = $request->gachapon_price;
+
+      if ($request->hasFile('gachapon_img')) {
+        $image = $request->file('gachapon_img');
+        $name = uniqid().'.'.$image->getClientOriginalExtension();
+        $destinationPath = public_path('/assets/img/gachapon');
+        $image->move($destinationPath, $name);
+
+        $gachapon->gachapon_img = $name;
+
+        }
+
+        $gachapon->save();
+
+        return redirect()->route('gachapon');
+    }
+
+    public function AdminDeleteGachaponProcess($id)  {
+      $gachapon = Gachapon::find($id);
+      $gachapon->delete();
+
+      return redirect()->route('gachapon');
+    }
 }
