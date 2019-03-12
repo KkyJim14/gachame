@@ -15,7 +15,10 @@ Route::get('/','UIViewController@ShowHomepage');
 
 Route::get('/member','UIViewController@ShowMember');
 
-Route::get('/wallet/{user_id}','UIViewController@ShowWallet');
+Route::get('/wallet','UIViewController@ShowWallet');
+
+// Inventory Function
+Route::get('/my-inventory/{id}','InventoryController@ShowInventory');
 
 // Gachapon Function
 Route::get('/gachapon/{id}','GachaponController@ShowGachapon');

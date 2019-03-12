@@ -8,7 +8,7 @@
 <div class="container mt-5">
   <div class="row">
     <div class="col-md-6" style="border-right:1px solid black;">
-      <h3>กระเป๋าตังค์ของฉัน <span style="float:right;"><i class="fas fa-money-bill-alt"></i> {{$user->user_money}}</span> </h3>
+      <h3>กระเป๋าตังค์ของฉัน <span style="float:right;"><i class="fas fa-money-bill-alt"></i> {{session('user_money')}}</span> </h3>
       <hr>
       <h5>เติมเงิน</h5>
       <table class="table text-center">
@@ -78,7 +78,7 @@
       </form>
     </div>
     <div class="col-md-6">
-      <h3>Token ของฉัน <span style="float:right;"><i class="fas fa-coins"></i> {{$user->user_token}}</span> </h3>
+      <h3>Token ของฉัน <span style="float:right;"><i class="fas fa-coins"></i> {{session('user_token')}}</span> </h3>
       @if(session('transfer_fail'))
         <div class="alert alert-danger">
           <span>{{session('transfer_fail')}}</span>

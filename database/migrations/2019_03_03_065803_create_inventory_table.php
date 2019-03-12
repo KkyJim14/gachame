@@ -17,7 +17,7 @@ class CreateInventoryTable extends Migration
             $table->uuid('inventory_id')->primary();
             $table->uuid('user_id');
             $table->uuid('product_id');
-            $table->boolean('inventroy_transfer');
+            $table->boolean('inventory_transfer');
             $table->timestamps();
         });
     }

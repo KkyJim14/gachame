@@ -28,22 +28,15 @@ class UIViewController extends Controller
       }
     }
 
-    public function ShowWallet($user_id)  {
+    public function ShowWallet()  {
 
-      if (session('user_id') == $user_id) {
-        $user = User::find(session('user_id'));
         $money = Money::all();
         $token = Token::all();
         return view('pages.user.wallet',[
-                                          'user' => $user,
                                           'money' => $money,
                                           'token' => $token,
                                         ]);
-      }
 
-      else {
-        abort(404);
-      }
 
     }
 

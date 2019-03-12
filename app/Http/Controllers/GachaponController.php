@@ -7,6 +7,7 @@ use App\Gachapon;
 use App\Role;
 use App\Product;
 use App\User;
+use App\Inventory;
 
 class GachaponController extends Controller
 {
@@ -63,11 +64,23 @@ class GachaponController extends Controller
           $rare_product->role_qty = $rare_product->role_qty-1;
           $rare_product->save();
 
+          $inventory = new Inventory;
+          $inventory->user_id = $user->user_id;
+          $inventory->product_id = $rare_product->product_id;
+          $inventory->inventory_transfer = false;
+          $inventory->save();
+
           return redirect()->back()->with('random-success-rare',"ได้ไอเทมแรร์");
         }
         else {
           $normal_product->role_qty = $normal_product->role_qty-1;
           $normal_product->save();
+
+          $inventory = new Inventory;
+          $inventory->user_id = $user->user_id;
+          $inventory->product_id = $normal_product->product_id;
+          $inventory->inventory_transfer = false;
+          $inventory->save();
 
           return redirect()->back()->with('random-success-normal',"ได้ไอเทมธรรมดา");
         }

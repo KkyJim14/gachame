@@ -8,6 +8,9 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
+          <a class="nav-link" href="/wallet">แลกเงิน</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" href="#">เกี่ยวกับเรา</a>
         </li>
         <li class="nav-item">
@@ -20,7 +23,7 @@
       @if(session('user_log'))
       <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a href="/wallet/{{session('user_id')}}" class="nav-link">
+            <a href="/wallet" class="nav-link">
               <i class="fas fa-money-bill-alt"></i> <span>{{session('user_money')}}</span> | <i class="fas fa-coins"></i> <span>{{session('user_token')}}</span>
             </a>
           </li>
@@ -30,7 +33,7 @@
             </a>
             <div class="dropdown-menu">
               <a class="dropdown-item" href="/transfer-report/{{session('user_id')}}">แจ้งโอนเงิน</a>
-              <a class="dropdown-item" href="/wallet/{{session('user_id')}}">กระเป๋าตังค์</a>
+              <a class="dropdown-item" href="/my-inventory/{{session('user_id')}}">กระเป๋าของฉัน</a>
               <a class="dropdown-item" href="/logout-process">ลงชื่อออก</a>
             </div>
           </li>

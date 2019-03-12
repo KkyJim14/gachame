@@ -33,7 +33,7 @@
         @elseif(session('user_log') == null)
           <a class="btn btn-primary form-control" href="/member">กรุณาสมัครสมาชิกก่อน</a>
         @elseif(session('user_token') < $gachapon->gachapon_price)
-          <a class="btn btn-warning form-control" href="/wallet/{{session('user_id')}}">Token ของคุณไม่เพียงพอ | เติมเงินที่นี่ !!</a>
+          <a class="btn btn-warning form-control" href="/wallet">Token ของคุณไม่เพียงพอ | เติมเงินที่นี่ !!</a>
         @else
         <form action="/gachapon/{{$gachapon->gachapon_id}}/random" method="post">
           @csrf
