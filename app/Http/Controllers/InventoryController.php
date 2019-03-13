@@ -13,4 +13,30 @@ class InventoryController extends Controller
                                                   'my_item' => $my_item,
                                                  ]);
     }
+
+    public function ShippingConfirm(Request $request) {
+
+      $validatedData = $request->validate([
+          'shipping_address' => 'required',
+      ]);
+
+      $shipping = Inventory::find($request->inventory_id);
+      $shipping->shipping_address = $request->shipping_address;
+      $shipping->save();
+
+      return redirect()->back();
+    }
+
+    public function ShippingEdit(Request $request)  {
+
+      $validatedData = $request->validate([
+          'shipping_address' => 'required',
+      ]);
+
+      $shipping = Inventory::find($request->inventory_id);
+      $shipping->shipping_address = $request->shipping_address;
+      $shipping->save();
+
+      return redirect()->back();
+    }
 }

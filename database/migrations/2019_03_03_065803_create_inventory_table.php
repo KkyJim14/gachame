@@ -18,6 +18,7 @@ class CreateInventoryTable extends Migration
             $table->uuid('user_id');
             $table->uuid('product_id');
             $table->boolean('inventory_transfer');
+            $table->longText('shipping_address')->nullable();
             $table->timestamps();
         });
     }

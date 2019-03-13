@@ -19,6 +19,8 @@ Route::get('/wallet','UIViewController@ShowWallet');
 
 // Inventory Function
 Route::get('/my-inventory/{id}','InventoryController@ShowInventory');
+Route::post('/shipping-confirm','InventoryController@ShippingConfirm');
+Route::post('/shipping-edit','InventoryController@ShippingEdit');
 
 // Gachapon Function
 Route::get('/gachapon/{id}','GachaponController@ShowGachapon');
@@ -132,3 +134,9 @@ Route::get('/admin/product-in-gachapon/{id}/edit','AdminProductInGachaponControl
 Route::post('/admin/product-in-gachapon/{id}/edit','AdminProductInGachaponController@AdminEditProductInGachaponProcess');
 
 Route::post('/admin/product-in-gachapon/{id}','AdminProductInGachaponController@AdminDeleteProductInGachaponProcess');
+
+// Admin Shipping Function
+
+Route::get('/admin/shipping','AdminShippingController@ShowAdminShipping');
+
+Route::post('/admin/shipping-success','AdminShippingController@AdminShippingApprove');

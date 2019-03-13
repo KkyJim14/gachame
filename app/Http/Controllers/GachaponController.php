@@ -68,6 +68,7 @@ class GachaponController extends Controller
           $inventory->user_id = $user->user_id;
           $inventory->product_id = $rare_product->product_id;
           $inventory->inventory_transfer = false;
+          $inventory->shipping_address = null;
           $inventory->save();
 
           return redirect()->back()->with('random-success-rare',"ได้ไอเทมแรร์");
@@ -80,6 +81,7 @@ class GachaponController extends Controller
           $inventory->user_id = $user->user_id;
           $inventory->product_id = $normal_product->product_id;
           $inventory->inventory_transfer = false;
+          $inventory->shipping_address = null;
           $inventory->save();
 
           return redirect()->back()->with('random-success-normal',"ได้ไอเทมธรรมดา");
