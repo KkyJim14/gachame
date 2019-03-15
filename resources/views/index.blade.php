@@ -14,15 +14,27 @@
   <hr>
   <div class="row">
     @foreach($gachapon as $all_gachapon)
-    <div class="col-md-3">
-      <div class="card" style="width: 18rem;">
-        <img src="/assets/img/gachapon/{{$all_gachapon->gachapon_img}}" class="card-img-top" alt="gachapon_img">
-        <div class="card-body">
-          <h5 class="card-title">{{$all_gachapon->gachapon_name}}</h5>
-          <p class="card-text">ค่าหมุน: {{$all_gachapon->gachapon_price}}</p>
-          <a href="/gachapon/{{$all_gachapon->gachapon_id}}" class="btn btn-primary form-control">เข้าห้องนี้</a>
-        </div>
-      </div>
+    <div class="col-md-4">
+      <a href="/gachapon/{{$all_gachapon->gachapon_id}}">
+        <!-- Normal Demo-->
+          <div class="column">
+            <!-- Post-->
+            <div class="post-module">
+              <!-- Thumbnail-->
+              <div class="thumbnail"><img src="/assets/img/gachapon/{{$all_gachapon->gachapon_img}}" class="card-img-top" alt="gachapon_img">
+              </div>
+              <!-- Post Content-->
+              <div class="post-content">
+                <div class="category">{{$all_gachapon->gachapon_price}}</div>
+                <h1 class="title">{{$all_gachapon->gachapon_name}}</h1>
+                <p>ไอเทมในกาชาปอง</p>
+                @foreach($all_gachapon->role as $role)
+                <h2 class="sub_title">-{{$role->product_name}}</h2>
+                @endforeach
+              </div>
+            </div>
+          </div>
+      </a>
     </div>
     @endforeach
   </div>

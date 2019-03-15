@@ -1,5 +1,5 @@
 body {
-  font-family: 'Kanit', sans-serif;
+  font-family: 'Kanit', sans-serif !important;
 }
 
 #navbar__profile__img {
@@ -24,4 +24,12 @@ body {
 .inventory-img {
   width:50px;
   height:50px;
+}
+
+.btn {
+  font-family: 'Kanit', sans-serif !important;
+}
+
+.card-text {
+  font-family: 'Kanit', sans-serif !important;
 }

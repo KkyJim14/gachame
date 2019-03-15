@@ -16,4 +16,9 @@ class Gachapon extends Model
   public $incrementing = false;
 
   protected $table = 'gachapon';
+
+  public function role()
+    {
+        return $this->belongsToMany('App\Product','role','gachapon_id','product_id');
+    }
 }

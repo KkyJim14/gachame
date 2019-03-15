@@ -27,5 +27,4 @@ class Role extends Model
         return $this->belongsTo('App\Product','product_id','product_id');
     }
 
-
 }
