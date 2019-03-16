@@ -20,6 +20,11 @@
         </ul>
     </div>
   @endif
+  @if(session('edit-success'))
+    <div class="alert alert-success">
+      <span>{{session('edit-success')}}</span>
+    </div>
+  @endif
   <hr>
   <div class="row">
     <div class="col-md-12">

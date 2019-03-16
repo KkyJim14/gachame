@@ -8,10 +8,15 @@ use App\Inventory;
 class InventoryController extends Controller
 {
     public function ShowInventory(Request $request,$id) {
-      $my_item = Inventory::where('user_id',$id)->orderBy('created_at','desc')->get();
-      return view('pages.inventory.my-inventory',[
-                                                  'my_item' => $my_item,
-                                                 ]);
+      if (session('user_id') == $id) {
+        $my_item = Inventory::where('user_id',$id)->orderBy('created_at','desc')->get();
+        return view('pages.inventory.my-inventory',[
+                                                    'my_item' => $my_item,
+                                                   ]);
+      }
+      else {
+        return redirect('/');
+      }
     }
 
     public function ShippingConfirm(Request $request) {
@@ -21,10 +26,23 @@ class InventoryController extends Controller
       ]);
 
       $shipping = Inventory::find($request->inventory_id);
-      $shipping->shipping_address = $request->shipping_address;
-      $shipping->save();
 
-      return redirect()->back();
+      if ($shipping) {
+        if (session('user_id') == $shipping->user_id) {
+          $shipping->shipping_address = $request->shipping_address;
+          $shipping->save();
+
+          return redirect()->back();
+        }
+        else {
+          return redirect('/');
+        }
+      }
+
+      else {
+        return redirect('/');
+      }
+
     }
 
     public function ShippingEdit(Request $request)  {
@@ -34,9 +52,21 @@ class InventoryController extends Controller
       ]);
 
       $shipping = Inventory::find($request->inventory_id);
-      $shipping->shipping_address = $request->shipping_address;
-      $shipping->save();
 
-      return redirect()->back();
+      if ($shipping) {
+        if (session('user_id') == $shipping->user_id) {
+          $shipping->shipping_address = $request->shipping_address;
+          $shipping->save();
+
+          return redirect()->back()->with('edit-success','แก้ไขการจัดส่งสำเร็จ');
+        }
+        else {
+          return redirect('/');
+        }
+      }
+
+      else {
+        return redirect('/');
+      }
     }
 }

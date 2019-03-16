@@ -11,13 +11,7 @@
           <a class="nav-link" href="/wallet">แลกเงิน</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">เกี่ยวกับเรา</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">อัลกอริทึ่มการสุ่ม</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">ติดต่อเรา</a>
+          <a class="nav-link" href="/contactus">ติดต่อเรา</a>
         </li>
       </ul>
       @if(session('user_log'))

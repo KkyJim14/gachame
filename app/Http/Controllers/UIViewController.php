@@ -40,6 +40,8 @@ class UIViewController extends Controller
 
     }
 
-
+    public function ShowContactus() {
+      return view('pages.other.contactus');
+    }
 
 }

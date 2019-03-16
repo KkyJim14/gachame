@@ -10,7 +10,7 @@
     <div class="col-md-8">
       <div class="gachapon">
         <figure class="figure">
-          <img src="/assets/img/gachapon/{{$gachapon->gachapon_img}}" class="figure-img img-fluid rounded" alt="gachapon_img">
+          <img src="/assets/img/gachapon/{{$gachapon->gachapon_img}}" class="figure-img img-fluid rounded gachapon-img" alt="gachapon_img">
         </figure>
         <hr>
         @if(session('random-success-rare'))

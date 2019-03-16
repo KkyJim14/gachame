@@ -56,6 +56,9 @@ p {
 
 .payment-method {
   width:100%;
+  height:50px;
+  border:1px solid black;
+  border-radius: 5px;
 }
 
 .footer-link a {
@@ -78,14 +81,6 @@ p {
 
 .nav-link {
   border-radius: 5px;
-}
-
-.btn-success {
-  background-image: radial-gradient( circle 1060px at 0.1% -22%,  rgba(74,174,3,1) 0%, rgba(0,0,0,0.9) 100.2% );
-}
-
-.btn-success:hover {
-  background-image: radial-gradient( circle 1060px at 0.1% -22%,  rgba(74,174,3,1) 0%, rgba(0,0,0,0.1) 100.2% );
 }
 
 .btn-primary {
@@ -112,4 +107,14 @@ p {
 .btn-token:hover {
   background-image: radial-gradient( circle 530px at 23.2% 57%,  rgba(204,6,6,1) 0%, rgba(149,8,8,1) 90% );
   color:rgba(255, 255, 255, 0.9);
+}
+
+.profile-info {
+  width:100%;
+  border-radius: 10px;
+}
+
+.gachapon-img {
+  width:100% !important;
+  object-fit: cover;
 }

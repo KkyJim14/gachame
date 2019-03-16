@@ -27,7 +27,7 @@
         </div>
       </div>
     @endif
-    <div class="col-md-6" style="border-right:1px solid black;">
+    <div class="col-md-6" style="border-right:1px solid #3d3131;">
       <h3 class='text-center'>เข้าสู่ระบบ</h3>
       <form action="/login-process" method="post">
         <div class="form-group">

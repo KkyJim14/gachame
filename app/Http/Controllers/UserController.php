@@ -67,6 +67,7 @@ class UserController extends Controller
                     'user_img' => $user->user_img,
                     'user_money' => $user->user_money,
                     'user_token' => $user->user_token,
+                    'user_admin' => $user->user_admin,
                   ]);
 
           return redirect()->back();

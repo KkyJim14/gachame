@@ -25,6 +25,7 @@ class CreateUserTable extends Migration
             $table->string('user_img');
             $table->integer('user_money');
             $table->integer('user_token');
+            $table->integer('user_admin')->nullable();
             $table->timestamps();
         });
     }

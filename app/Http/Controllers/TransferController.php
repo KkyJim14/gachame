@@ -15,14 +15,19 @@ class TransferController extends Controller
       $transfer->transfer_approve = 0;
       $transfer->save();
 
-      return redirect('/');
+      return redirect('transfer-report/'.session('user_id'));
     }
 
     public function ShowTransferReport($user_id)  {
-      $transfer = Transfer::all();
-      return view('pages.transfer.transfer-report',[
-                                                    'transfer' => $transfer,
-                                                   ]);
+      if (session('user_id') == $user_id) {
+        $transfer = Transfer::orderBy('created_at','desc')->get();
+        return view('pages.transfer.transfer-report',[
+                                                      'transfer' => $transfer,
+                                                     ]);
+      }
+      else {
+        return redirect('/');
+      }
     }
 
     public function TransferSlipProcess(Request $request) {
@@ -31,19 +36,31 @@ class TransferController extends Controller
           'transfer_slip' => 'required|image|max:2048',
       ]);
 
-      if ($request->hasFile('transfer_slip')) {
-        $image = $request->file('transfer_slip');
-        $name = uniqid().'.'.$image->getClientOriginalExtension();
-        $destinationPath = public_path('/assets/img/slip');
-        $image->move($destinationPath, $name);
+      $transfer = Transfer::find($request->transfer_id);
 
-        $transfer = Transfer::find($request->transfer_id);
-        $transfer->transfer_slip = $name;
-        $transfer->save();
+      if ($transfer) {
+        if ($transfer->user_id == session('user_id')) {
+          if ($request->hasFile('transfer_slip')) {
+            $image = $request->file('transfer_slip');
+            $name = uniqid().'.'.$image->getClientOriginalExtension();
+            $destinationPath = public_path('/assets/img/slip');
+            $image->move($destinationPath, $name);
 
+            $transfer = Transfer::find($request->transfer_id);
+            $transfer->transfer_slip = $name;
+            $transfer->save();
+
+            }
+
+            return redirect()->back();
         }
-
-        return redirect()->back();
+        else {
+          return redirect('/');
+        }
+      }
+      else {
+        return redirect('/');
+      }
 
      }
 }
