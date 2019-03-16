@@ -1,6 +1,6 @@
 body {
   background: #f2f2f2;
-  font-family: 'proxima-nova-soft', sans-serif;
+  font-family: 'Kanit', sans-serif !important;
   font-size: 14px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -93,7 +93,7 @@ body {
   position: absolute;
   top: -34px;
   left: 0;
-  background: #e74c3c;
+  background-image: linear-gradient( 181deg,  rgba(70,69,69,1) -1.7%, rgba(46,46,46,1) 85.6% );
   padding: 10px 15px;
   color: #FFFFFF;
   font-size: 14px;
@@ -136,18 +136,18 @@ body {
   height: auto !important;
   opacity: 1 !important;
 }
-.container {
+.containers {
   max-width: 800px;
   min-width: 640px;
   margin: 0 auto;
 }
-.container:before,
-.container:after {
+.containers:before,
+.containers:after {
   content: '';
   display: block;
   clear: both;
 }
-.container .column {
+.containers .column {
   width: 50%;
   padding: 0 25px;
   -webkti-box-sizing: border-box;
@@ -155,33 +155,33 @@ body {
   box-sizing: border-box;
   float: left;
 }
-.container .column .demo-title {
+.containers .column .demo-title {
   margin: 0 0 15px;
   color: #666666;
   font-size: 18px;
   font-weight: bold;
   text-transform: uppercase;
 }
-.container .info {
+.containers .info {
   width: 300px;
   margin: 50px auto;
   text-align: center;
 }
-.container .info h1 {
+.containers .info h1 {
   margin: 0 0 15px;
   padding: 0;
   font-size: 24px;
   font-weight: bold;
   color: #333333;
 }
-.container .info span {
+.containers .info span {
   color: #666666;
   font-size: 12px;
 }
-.container .info span a {
+.containers .info span a {
   color: #000000;
   text-decoration: none;
 }
-.container .info span .fa {
+.containers .info span .fa {
   color: #e74c3c;
 }

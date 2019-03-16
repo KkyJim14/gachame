@@ -25,7 +25,7 @@
               </div>
               <!-- Post Content-->
               <div class="post-content">
-                <div class="category">{{$all_gachapon->gachapon_price}}</div>
+                <div class="category">{{$all_gachapon->gachapon_price}} ฿</div>
                 <h1 class="title">{{$all_gachapon->gachapon_name}}</h1>
                 <p>ไอเทมในกาชาปอง</p>
                 @foreach($all_gachapon->role as $role)

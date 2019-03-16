@@ -7,7 +7,7 @@
 @section('content')
 <div class="container mt-5">
   <div class="row">
-    <div class="col-md-6" style="border-right:1px solid black;">
+    <div class="col-md-6" style="border-right:1px solid gray">
       <h3>กระเป๋าตังค์ของฉัน <span style="float:right;"><i class="fas fa-money-bill-alt"></i> {{session('user_money')}}</span> </h3>
       <hr>
       <h5>เติมเงิน</h5>
@@ -103,7 +103,7 @@
               <form action="/token-transfer" method="post">
                 <input type="hidden" name="token_transfer" value="{{$all_token->token_id}}">
                 @csrf
-                <button class="btn btn-primary form-control" type="submit" name="button">แลก</button>
+                <button class="btn btn-token form-control" type="submit" name="button">แลก</button>
               </form>
             </td>
           </tr>
@@ -114,7 +114,7 @@
       <form  action="/token-transfer-manual" method="post">
         <input class="form-control" type="number" name="token_transfer" value="" placeholder="กรุณาระบุจำนวนเงินที่ต้องการแลก">
         @csrf
-        <button class="btn btn-primary form-control mt-2" type="submit" name="button">แลก Token</button>
+        <button class="btn btn-token form-control mt-2" type="submit" name="button">แลก Token</button>
       </form>
     </div>
   </div>

@@ -31,11 +31,11 @@
             <td>{{$all_transfer->created_at}}</td>
             @if($all_transfer->transfer_approve == 2)
             <td>
-              <button class="btn btn-success form-control disabled" type="button" name="button">การโอนเงินอนุมัติ</button>
+              <button class="btn btn-success form-control" type="button" name="button">การโอนเงินอนุมัติ</button>
             </td>
             @elseif($all_transfer->transfer_approve == 1)
             <td>
-              <button class="btn btn-danger form-control disabled" type="button" name="button">การโอนเงินถูกปฎิเสธ</button>
+              <button class="btn btn-danger form-control" type="button" name="button">การโอนเงินถูกปฎิเสธ</button>
             </td>
             @elseif(empty($all_transfer->transfer_slip))
             <td>
@@ -70,7 +70,7 @@
               </td>
               @else
               <td>
-                <button class="btn btn-warning form-control disabled" type="button" name="button">รอตรวจสอบ</button>
+                <button class="btn btn-warning form-control" type="button" name="button">รอตรวจสอบ</button>
               </td>
               @endif
           </tr>

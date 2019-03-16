@@ -17,5 +17,8 @@
     @yield('content')
 
     @include('components.footer')
+
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/th_TH/sdk.js#xfbml=1&version=v3.2&appId=2272591629440830&autoLogAppEvents=1"></script>
   </body>
 </html>
