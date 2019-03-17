@@ -23,8 +23,8 @@
   </div>
   @endif
   <div class="row">
-    <div class="col-md-6" style="border-right:1px solid gray">
-      <h3>กระเป๋าตังค์ของฉัน <span style="float:right;"><i class="fas fa-money-bill-alt"></i> {{session('user_money')}}</span> </h3>
+    <div class="col-md-6 wallet-hr">
+      <h3>เงินของฉัน <span style="float:right;"><i class="fas fa-money-bill-alt"></i> {{session('user_money')}}</span> </h3>
       <hr>
       <h5>เติมเงิน</h5>
       <table class="table text-center">
@@ -74,7 +74,7 @@
           @endforeach
         </tbody>
       </table>
-      <h5>ระบุจำนวน (ตั้งแต่ 20 บาทขึ้นไป)</h5> 
+      <h5>ระบุจำนวน (ตั้งแต่ 20 บาทขึ้นไป)</h5>
       <form action="/transfer" method="post">
         <input autocomplete="off" class="form-control" type="number" name="transfer_amount" id="transfer_amount" value="" placeholder="กรุณาระบุจำนวนเงินที่ต้องการเติม">
         @csrf
@@ -108,7 +108,7 @@
         </script>
       </form>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-6 wallet-token">
       <h3>Token ของฉัน <span style="float:right;"><i class="fas fa-coins"></i> {{session('user_token')}}</span> </h3>
       @if(session('transfer_fail'))
         <div class="alert alert-danger">

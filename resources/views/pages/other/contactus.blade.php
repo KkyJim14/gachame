@@ -22,26 +22,26 @@
   </div>
   <hr>
   <div class="row text-center">
-    <div class="col-md-4 profile-box">
+    <div class="col-md-4 profile-box mb-3">
       <img class="profile-info" src="/assets/img/info/jimmy.jpg" alt="jimmy">
       <h5 class="mt-3">CEO</h5>
       <h5>นาย ปิยะกานตร์ นิมมากุลวิรัตน์</h5>
     </div>
-    <div class="col-md-4 profile-box">
+    <div class="col-md-4 profile-box mb-3">
       <img class="profile-info" src="/assets/img/info/boss.jpg" alt="boss">
       <h5 class="mt-3">Co-Founder</h5>
       <h5>นาย ศิรสิทธิ์ เติมพรวิทิต</h5>
     </div>
   </div>
   <div class="row mt-5">
-    <div class="col-md-6">
+    <div class="col-md-6 mt-2">
       <h3>Partner</h3>
       <hr>
-      <div class="col-md-6">
+      <div class="col-md-6 mt-2">
         <img class="profile-info" src="/assets/img/info/jimmygameplay.png" alt="jimmygameplay">
       </div>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-6 mt-2">
       <h3>ติดต่อ</h3>
       <hr>
       <p>ออฟฟิศ (เวลาทำการ: ทุกวัน 10.00-22.00 น.)</p>

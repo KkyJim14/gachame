@@ -42,7 +42,7 @@
         @endif
       </div>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-4 gachapon-stats">
       <h3>Token ของฉัน : @if(session('user_log')){{session('user_token')}} <i class="fas fa-coins"></i> @else <a class="btn btn-primary form-control mt-2" href="/member">กรุณาสมัครสมาชิกก่อน</a> @endif</h3>
       <hr>
       <h3>{{$gachapon->gachapon_name}}</h3>
