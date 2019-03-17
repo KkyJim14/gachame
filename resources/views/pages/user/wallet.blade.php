@@ -82,7 +82,7 @@
             }
             $("#transfer_amount").change(function(e){
                 if(isNumber($("#transfer_amount").val())){
-                    $("#omiseScript_autoFillable").attr("data-amount", parseInt($("#transfer_amount").val()));
+                    $("#omiseScript_autoFillable").attr("data-amount", parseInt("" + $("#transfer_amount").val() + "00"));
                 }
             });
         </script>
