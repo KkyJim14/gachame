@@ -21,7 +21,16 @@ p {
   border:none;
   color:white;
   padding:8px;
-  border-radius: 5px;
+  border-radius: 1.078em;
+}
+
+.checkout-form button:hover {
+  width:100%;
+  background-color:#0165d0;
+  border:none;
+  color:white;
+  padding:8px;
+  border-radius: 1.078em;
 }
 
 .gachapon figure img {

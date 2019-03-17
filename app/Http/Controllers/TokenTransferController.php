@@ -9,6 +9,11 @@ use App\User;
 class TokenTransferController extends Controller
 {
     public function TokenTransferProcess(Request $request)  {
+
+      $validatedData = $request->validate([
+        'token_transfer' => 'required',
+      ]);
+
       $token = Token::find($request->token_transfer);
       if ($token) {
         $user = User::find(session('user_id'));
@@ -32,6 +37,11 @@ class TokenTransferController extends Controller
     }
 
     public function TokenTransferManualProcess(Request $request)  {
+
+      $validatedData = $request->validate([
+        'token_transfer' => 'required',
+      ]);
+
       $user = User::find(session('user_id'));
       if ($user->user_money < $request->token_transfer) {
         return redirect()->back()->with('transfer_fail','จำนวนเงินคุณไม่พอ');

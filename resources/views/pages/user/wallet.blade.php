@@ -6,6 +6,22 @@
 
 @section('content')
 <div class="container mt-5">
+  @if ($errors->any())
+      <div class="col-md-12">
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+      </div>
+  @endif
+  @if(session('omise-fail'))
+  <div class="alert alert-danger">
+    <span>{{session('omise-fail')}}</span>
+  </div>
+  @endif
   <div class="row">
     <div class="col-md-6" style="border-right:1px solid gray">
       <h3>กระเป๋าตังค์ของฉัน <span style="float:right;"><i class="fas fa-money-bill-alt"></i> {{session('user_money')}}</span> </h3>
@@ -16,7 +32,6 @@
           <tr>
             <th scope="col">จำนวนเงิน</th>
             <th scope="col">โอนเงิน</th>
-            <th scope="col">บัตรเครดิต</th>
           </tr>
         </thead>
         <tbody>
@@ -26,7 +41,7 @@
             <td>
               <!-- Transfer Modal -->
               <!-- Button trigger modal -->
-                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#transfermodal{{$all_money->money_id}}">
+                <button type="button" class="btn btn-success form-control" data-toggle="modal" data-target="#transfermodal{{$all_money->money_id}}">
                   โอนเงิน
                 </button>
 
@@ -55,22 +70,27 @@
                 </div>
               <!-- End Transfer Modal -->
             </td>
-            <td><a class="btn btn-primary form-control" href="">ชำระผ่านบัตรเครดิต</a></td>
           </tr>
           @endforeach
         </tbody>
       </table>
-      <h5>ระบุจำนวน</h5>
+      <h5>ระบุจำนวน (ตั้งแต่ 20 บาทขึ้นไป)</h5> 
       <form action="/transfer" method="post">
         <input autocomplete="off" class="form-control" type="number" name="transfer_amount" id="transfer_amount" value="" placeholder="กรุณาระบุจำนวนเงินที่ต้องการเติม">
         @csrf
         <button class="btn btn-success form-control mt-2" type="submit" name="button">โอนเงิน</button>
       </form>
       <form class="checkout-form mt-2" name="checkoutForm" method="POST" action="/omise-pay">
+        <input id="transfer_omise" type="hidden" name="transfer_omise" value="">
+        <script>
+        $('#transfer_amount').change(function() {
+          $('#transfer_omise').val($(this).val());
+        });
+        </script>
         @csrf
         <script id="omiseScript_autoFillable" type="text/javascript" src="https://cdn.omise.co/omise.js"
                 data-key="pkey_test_5cxodoewdmtrmj4j1g4"
-                data-amount="500"
+                data-amount=""
                 data-frame-label="www.gachame.com"
                 data-submit-label="ยืนยันการชำระเงิน"
                 data-button-label="เติมผ่านบัตรเครดิต">
