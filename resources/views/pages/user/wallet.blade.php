@@ -62,18 +62,29 @@
       </table>
       <h5>ระบุจำนวน</h5>
       <form action="/transfer" method="post">
-        <input class="form-control" type="number" name="transfer_amount" value="" placeholder="กรุณาระบุจำนวนเงินที่ต้องการเติม">
+        <input autocomplete="off" class="form-control" type="number" name="transfer_amount" id="transfer_amount" value="" placeholder="กรุณาระบุจำนวนเงินที่ต้องการเติม">
         @csrf
         <button class="btn btn-success form-control mt-2" type="submit" name="button">โอนเงิน</button>
       </form>
       <form class="checkout-form mt-2" name="checkoutForm" method="POST" action="/omise-pay">
         @csrf
-        <script type="text/javascript" src="https://cdn.omise.co/omise.js"
+        <script id="omiseScript_autoFillable" type="text/javascript" src="https://cdn.omise.co/omise.js"
                 data-key="pkey_test_5cxodoewdmtrmj4j1g4"
                 data-amount="500"
                 data-frame-label="www.gachame.com"
                 data-submit-label="ยืนยันการชำระเงิน"
                 data-button-label="เติมผ่านบัตรเครดิต">
+        </script>
+        <script>
+            function isNumber(value) {
+                var x = parseFloat(value);
+                return !isNaN(value) && (x | 0) === x;
+            }
+            $("#transfer_amount").change(function(e){
+                if(isNumber($("#transfer_amount").val())){
+                    $("#omiseScript_autoFillable").attr("data-amount", parseInt($("#transfer_amount").val()));
+                }
+            });
         </script>
       </form>
     </div>
