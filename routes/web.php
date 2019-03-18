@@ -13,7 +13,7 @@
 
 Route::get('/','UIViewController@ShowHomepage');
 
-Route::get('/member','UIViewController@ShowMember');
+Route::get('/member','UIViewController@ShowMember')->name('member');
 
 Route::get('/wallet','UIViewController@ShowWallet');
 
@@ -53,7 +53,7 @@ Route::post('/token-transfer','TokenTransferController@TokenTransferProcess');
 Route::post('/token-transfer-manual','TokenTransferController@TokenTransferManualProcess');
 
 Route::middleware(['admin'])->group(function () {
-  
+
   // Admin Dashboard
 
   Route::get('/admin/dashboard','AdminUIViewController@ShowAdminDashboard');

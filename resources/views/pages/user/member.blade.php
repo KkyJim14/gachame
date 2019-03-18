@@ -27,6 +27,13 @@
         </div>
       </div>
     @endif
+    @if(session('transfer-fail'))
+    <div class="col-md-12">
+      <div class="alert alert-danger">
+        <span>{{session('transfer-fail')}}</span>
+      </div>
+    </div>
+    @endif
     <div class="col-md-6 login-box">
       <h3 class='text-center'>เข้าสู่ระบบ</h3>
       <form action="/login-process" method="post">

@@ -9,13 +9,18 @@ use App\User;
 class TransferController extends Controller
 {
     public function TransferProcess(Request $request) {
-      $transfer = new Transfer;
-      $transfer->user_id = session('user_id');
-      $transfer->transfer_amount = $request->transfer_amount;
-      $transfer->transfer_approve = 0;
-      $transfer->save();
+      if (session('user_log')) {
+        $transfer = new Transfer;
+        $transfer->user_id = session('user_id');
+        $transfer->transfer_amount = $request->transfer_amount;
+        $transfer->transfer_approve = 0;
+        $transfer->save();
 
-      return redirect('transfer-report/'.session('user_id'));
+        return redirect('transfer-report/'.session('user_id'));
+      }
+      else {
+        return redirect('member')->with('transfer-fail','กรุณาสมัครสมาชิกก่อน');
+      }
     }
 
     public function ShowTransferReport($user_id)  {
