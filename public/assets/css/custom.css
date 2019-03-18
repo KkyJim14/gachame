@@ -10,7 +10,7 @@ p {
 }
 
 .modal-table {
-  z-index: 9999;
+  position: fixed;
 }
 
 #navbar__profile__img {
