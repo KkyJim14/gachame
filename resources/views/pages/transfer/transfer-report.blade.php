@@ -47,29 +47,6 @@
                     อัพโหลด
                   </button>
                 </td>
-                <!-- Modal -->
-                <div class="modal fade modal-table" id="uploadslip{{$all_transfer->transfer_id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                  <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">ส่งสลิป</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                        </button>
-                      </div>
-                      <div class="modal-body">
-                        <form action="/transfer-slip-process" method="post" enctype="multipart/form-data">
-                            <input type="hidden" name="transfer_id" value="{{$all_transfer->transfer_id}}">
-                            <input type="file" name="transfer_slip" value="">
-                      </div>
-                      <div class="modal-footer">
-                            @csrf
-                            <button class="btn btn-success form-control" type="submit" name="button">ยืนยัน</button>
-                        </form>
-                      </div>
-                    </div>
-                  </div>
-                </div>
                 @else
                 <td>
                   <button class="btn btn-warning form-control" type="button" name="button">รอตรวจสอบ</button>
@@ -83,6 +60,36 @@
     </div>
   </div>
 </div>
+
+@foreach($transfer as $all_transfer)
+@if($all_transfer->transfer_approve == 2)
+@elseif($all_transfer->transfer_approve == 1)
+@elseif(empty($all_transfer->transfer_slip))
+<!-- Modal -->
+<div class="modal fade modal-table" id="uploadslip{{$all_transfer->transfer_id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">ส่งสลิป</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="/transfer-slip-process" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="transfer_id" value="{{$all_transfer->transfer_id}}">
+            <input type="file" name="transfer_slip" value="">
+      </div>
+      <div class="modal-footer">
+            @csrf
+            <button class="btn btn-success form-control" type="submit" name="button">ยืนยัน</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+@endif
+@endforeach
 <br>
 <br>
 <br>

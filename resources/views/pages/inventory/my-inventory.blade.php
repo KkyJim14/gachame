@@ -56,33 +56,6 @@
                 <button type="button" class="btn btn-success form-control" data-toggle="modal" data-target="#inventory{{$show_item->inventory_id}}">
                   ส่งของ
                 </button>
-
-                <!-- Modal -->
-                <div class="modal fade modal-table" id="inventory{{$show_item->inventory_id}}" tabindex="-1" role="dialog" aria-labelledby="inventory" aria-hidden="true">
-                  <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">ข้อมูลการจัดส่ง</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                        </button>
-                      </div>
-                      <div class="modal-body">
-                        <form class="text-left" action="/shipping-confirm" method="post">
-                          <div class="form-group">
-                            <label>รายละเอียดการจัดส่ง</label>
-                            <input type="hidden" name="inventory_id" value="{{$show_item->inventory_id}}">
-                            <textarea class="form-control" name="shipping_address" rows="5" placeholder="กรุณากรอกรายละเอียดการจัดส่ง"></textarea>
-                          </div>
-                      </div>
-                      <div class="modal-footer">
-                        @csrf
-                        <button class="btn btn-success form-control" type="submit" name="button">ยืนยันการจัดส่ง</button>
-                        </form>
-                      </div>
-                    </div>
-                  </div>
-                </div>
               </td>
               @else
               <td>
@@ -90,33 +63,6 @@
                 <button type="button" class="btn btn-warning form-control" data-toggle="modal" data-target="#inventory{{$show_item->inventory_id}}">
                   แก้ไขการจัดส่ง
                 </button>
-
-                <!-- Modal -->
-                <div class="modal fade modal-table" id="inventory{{$show_item->inventory_id}}" tabindex="-1" role="dialog" aria-labelledby="inventory" aria-hidden="true">
-                  <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">ข้อมูลการจัดส่ง</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                        </button>
-                      </div>
-                      <div class="modal-body">
-                        <form class="text-left" action="/shipping-edit" method="post">
-                          <div class="form-group">
-                            <label>รายละเอียดการจัดส่ง</label>
-                            <input type="hidden" name="inventory_id" value="{{$show_item->inventory_id}}">
-                            <textarea class="form-control" name="shipping_address" rows="5" placeholder="กรุณากรอกรายละเอียดการจัดส่ง"></textarea>
-                          </div>
-                      </div>
-                      <div class="modal-footer">
-                        @csrf
-                        <button class="btn btn-warning form-control" type="submit" name="button">แก้ไขการจัดส่ง</button>
-                        </form>
-                      </div>
-                    </div>
-                  </div>
-                </div>
               </td>
               @endif
             </tr>
@@ -127,6 +73,67 @@
     </div>
   </div>
 </div>
+
+@foreach($my_item as $show_item)
+@if($show_item->inventory_transfer == true)
+@elseif($show_item->shipping_address == null)
+<!-- Modal -->
+<div class="modal fade modal-table" id="inventory{{$show_item->inventory_id}}" tabindex="-1" role="dialog" aria-labelledby="inventory" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">ข้อมูลการจัดส่ง</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form class="text-left" action="/shipping-confirm" method="post">
+          <div class="form-group">
+            <label>รายละเอียดการจัดส่ง</label>
+            <input type="hidden" name="inventory_id" value="{{$show_item->inventory_id}}">
+            <textarea class="form-control" name="shipping_address" rows="5" placeholder="กรุณากรอกรายละเอียดการจัดส่ง"></textarea>
+          </div>
+      </div>
+      <div class="modal-footer">
+        @csrf
+        <button class="btn btn-success form-control" type="submit" name="button">ยืนยันการจัดส่ง</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+@else
+<!-- Modal -->
+<div class="modal fade modal-table" id="inventory{{$show_item->inventory_id}}" tabindex="-1" role="dialog" aria-labelledby="inventory" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">ข้อมูลการจัดส่ง</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form class="text-left" action="/shipping-edit" method="post">
+          <div class="form-group">
+            <label>รายละเอียดการจัดส่ง</label>
+            <input type="hidden" name="inventory_id" value="{{$show_item->inventory_id}}">
+            <textarea class="form-control" name="shipping_address" rows="5" placeholder="กรุณากรอกรายละเอียดการจัดส่ง"></textarea>
+          </div>
+      </div>
+      <div class="modal-footer">
+        @csrf
+        <button class="btn btn-warning form-control" type="submit" name="button">แก้ไขการจัดส่ง</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+@endif
+
+@endforeach
 <br>
 <br>
 <br>
