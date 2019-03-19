@@ -44,7 +44,7 @@ Route::post('/transfer-slip-process','TransferController@TransferSlipProcess');
 
 // Omise Payment
 
-Route::post('/omise-pay','OmiseController@OmisePay');
+//Route::post('/omise-pay','OmiseController@OmisePay');
 
 // Token Transfer
 
