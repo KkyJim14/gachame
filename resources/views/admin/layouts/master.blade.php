@@ -90,6 +90,7 @@
                  <li><a href="/admin/product"><i class="fas fa-box-open"></i> สินค้า</a> </li>
                  <li><a href="/admin/gachapon"><i class="fas fa-random"></i> กาชาปอง</a> </li>
                  <li><a href="/admin/product-in-gachapon"><i class="fab fa-product-hunt"></i> สินค้าในกาชาปอง</a> </li>
+                 <li><a href="/admin/shipping"><i class="fas fa-truck-moving"></i> ส่งของ</a> </li>
            </ul>
            <!-- /.sidebar-menu -->
         </section>

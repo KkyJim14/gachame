@@ -13,6 +13,7 @@
       <th scope="col">ลำดับ</th>
       <th scope="col">ชื่อคนโอน</th>
       <th scope="col">จำนวนเงินที่โอน</th>
+      <th scope="col">สลิป</th>
       <th scope="col">ยืนยัน</th>
     </tr>
   </thead>
@@ -22,6 +23,7 @@
       <th scope="row">{{$loop->iteration}}</th>
       <td>{{$all_transfer->user->user_fname}} {{$all_transfer->user->user_lname}}</td>
       <td>{{$all_transfer->transfer_amount}}</td>
+      <td><img src="/assets/img/slip/{{$all_transfer->transfer_slip}}" alt="slip_transfer" style="width:100px; height:100px;"> </td>
       <td>
         <form action="/admin/transfer/{{$all_transfer->transfer_id}}/edit" method="post">
           <input type="hidden" name="transfer_approve" value="2">
